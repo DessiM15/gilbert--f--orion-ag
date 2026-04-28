@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { useInView } from "../hooks/useInView";
+
 const features = [
   {
     title: "Same Day Services",
@@ -38,11 +43,26 @@ const features = [
   },
 ];
 
+const staggerDelays = ["delay-100", "delay-200", "delay-300", "delay-400"];
+
 export default function WhyChooseUs() {
+  const { ref, isInView } = useInView(0.1);
+
   return (
-    <section id="why-us" className="py-20 bg-dark text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+    <section id="why-us" className="relative py-20 text-white overflow-hidden">
+      {/* Background photo */}
+      <Image
+        src="/images/why-us-bg.jpg"
+        alt=""
+        fill
+        className="object-cover"
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-dark/85" />
+
+      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-14 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
           <h2 className="text-3xl sm:text-4xl font-extrabold">
             Why Choose <span className="text-gold">Us</span>?
           </h2>
@@ -53,12 +73,22 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
+          {features.map((feature, i) => (
             <div
               key={feature.title}
-              className="text-center p-6 rounded-2xl bg-dark-light/50 border border-gray-700/50 hover:border-gold/30 transition-colors"
+              className={`
+                text-center p-6 rounded-2xl
+                bg-white/5 backdrop-blur-sm border border-white/10
+                hover:border-gold/30 hover:bg-white/10
+                transition-all duration-300
+                ${isInView ? `animate-fade-in-up ${staggerDelays[i]}` : "animate-hidden"}
+              `}
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/10 text-gold mb-5">
+              <div className={`
+                inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/10 text-gold mb-5
+                transition-transform duration-300
+                ${isInView ? "animate-scale-in" : ""}
+              `}>
                 {feature.icon}
               </div>
               <h3 className="text-lg font-bold mb-2">{feature.title}</h3>

@@ -1,3 +1,7 @@
+"use client";
+
+import { useInView } from "../hooks/useInView";
+
 const services = [
   {
     title: "Windshield Repair",
@@ -32,33 +36,45 @@ const services = [
   },
 ];
 
+const staggerDelays = ["delay-100", "delay-300", "delay-500"];
+
 export default function Services() {
+  const { ref, isInView } = useInView(0.1);
+
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-dark">
+    <section id="services" className="py-20 bg-dark">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-14 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
             Our Services
           </h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
             From small chips to full replacements, we handle it all with
             precision and care.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service) => (
+          {services.map((service, i) => (
             <div
               key={service.title}
-              className="bg-tan/30 border border-gold/20 rounded-2xl p-8 text-center hover:shadow-lg hover:border-gold/40 transition-all"
+              className={`
+                relative bg-white/5 backdrop-blur-sm border border-white/10
+                rounded-2xl p-8 text-center
+                transition-all duration-300
+                hover:scale-[1.03] hover:-translate-y-1
+                hover:shadow-[0_8px_40px_rgba(212,168,67,0.15)]
+                hover:border-gold/40
+                ${isInView ? `animate-fade-in-up ${staggerDelays[i]}` : "animate-hidden"}
+              `}
             >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 text-gold mb-6">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-dark mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 {service.description}
               </p>
             </div>
@@ -66,8 +82,8 @@ export default function Services() {
         </div>
 
         {/* Discounts banner */}
-        <div className="mt-12 text-center">
-          <span className="inline-block bg-gold text-dark font-bold text-lg px-8 py-3 rounded-full shadow-md">
+        <div className={`mt-12 text-center ${isInView ? "animate-fade-in-up delay-600" : "animate-hidden"}`}>
+          <span className="inline-block bg-gold text-dark font-bold text-lg px-8 py-3 rounded-full shadow-[0_0_30px_rgba(212,168,67,0.3)]">
             Discounts Available!
           </span>
         </div>

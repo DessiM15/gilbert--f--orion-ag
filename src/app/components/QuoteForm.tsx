@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useInView } from "../hooks/useInView";
 
 export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
+  const { ref, isInView } = useInView(0.1);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,8 +43,8 @@ export default function QuoteForm() {
 
   return (
     <section id="quote" className="py-20 bg-tan/40">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-10 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-dark">
             Get a <span className="text-gold-dark">Free Quote</span>
           </h2>
@@ -52,107 +54,158 @@ export default function QuoteForm() {
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
-        >
-          {/* Name & Phone */}
-          <div className="grid sm:grid-cols-2 gap-6">
+        <div className={`grid lg:grid-cols-5 gap-8 items-start ${isInView ? "animate-fade-in-up delay-200" : "animate-hidden"}`}>
+          {/* Form — 3 columns */}
+          <form
+            onSubmit={handleSubmit}
+            className="lg:col-span-3 bg-white rounded-2xl shadow-lg p-8 space-y-6 border-t-4 border-gold"
+          >
+            {/* Name & Phone */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-dark mb-1">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-1">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow"
+                  placeholder="(956) 555-1234"
+                />
+              </div>
+            </div>
+
+            {/* Email */}
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-dark mb-1">
-                Full Name <span className="text-red-500">*</span>
+              <label htmlFor="email" className="block text-sm font-semibold text-dark mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow"
+                placeholder="john@example.com"
+              />
+            </div>
+
+            {/* Vehicle */}
+            <div>
+              <label htmlFor="vehicle" className="block text-sm font-semibold text-dark mb-1">
+                Vehicle Year / Make / Model
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                placeholder="John Doe"
+                id="vehicle"
+                name="vehicle"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow"
+                placeholder="2022 Toyota Camry"
               />
             </div>
+
+            {/* Service Needed */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-1">
-                Phone Number <span className="text-red-500">*</span>
+              <label htmlFor="service" className="block text-sm font-semibold text-dark mb-1">
+                Service Needed
               </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                placeholder="(956) 555-1234"
+              <select
+                id="service"
+                name="service"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark bg-white focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow"
+              >
+                <option value="">Select a service...</option>
+                <option value="windshield-repair">Windshield Repair</option>
+                <option value="window-replacement">Window Replacement</option>
+                <option value="window-tint">Window Tint</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label htmlFor="message" className="block text-sm font-semibold text-dark mb-1">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-shadow resize-vertical"
+                placeholder="Tell us about your needs..."
               />
             </div>
-          </div>
 
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-dark mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-              placeholder="john@example.com"
-            />
-          </div>
-
-          {/* Vehicle */}
-          <div>
-            <label htmlFor="vehicle" className="block text-sm font-semibold text-dark mb-1">
-              Vehicle Year / Make / Model
-            </label>
-            <input
-              type="text"
-              id="vehicle"
-              name="vehicle"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-              placeholder="2022 Toyota Camry"
-            />
-          </div>
-
-          {/* Service Needed */}
-          <div>
-            <label htmlFor="service" className="block text-sm font-semibold text-dark mb-1">
-              Service Needed
-            </label>
-            <select
-              id="service"
-              name="service"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark bg-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+            <button
+              type="submit"
+              className="w-full bg-gold hover:bg-gold-dark text-dark font-bold text-lg py-4 rounded-full transition-all cursor-pointer hover:shadow-[0_0_25px_rgba(212,168,67,0.4)]"
             >
-              <option value="">Select a service...</option>
-              <option value="windshield-repair">Windshield Repair</option>
-              <option value="window-replacement">Window Replacement</option>
-              <option value="window-tint">Window Tint</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+              Request Free Quote
+            </button>
+          </form>
 
-          {/* Message */}
-          <div>
-            <label htmlFor="message" className="block text-sm font-semibold text-dark mb-1">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-vertical"
-              placeholder="Tell us about your needs..."
-            />
-          </div>
+          {/* Right side — persuasive CTA — 2 columns */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-dark rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">
+                Why Get a Quote <span className="text-gold">Today</span>?
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-300">100% free, no-obligation estimates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-300">Same day service available</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-300">Local RGV family business</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-300">Quality work guaranteed</span>
+                </li>
+              </ul>
+            </div>
 
-          <button
-            type="submit"
-            className="w-full bg-gold hover:bg-gold-dark text-dark font-bold text-lg py-4 rounded-full transition-colors cursor-pointer"
-          >
-            Request Free Quote
-          </button>
-        </form>
+            <div className="bg-dark rounded-2xl p-8 text-center">
+              <p className="text-gray-400 text-sm mb-3">Prefer to talk now?</p>
+              <a
+                href="tel:9568123583"
+                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-dark font-bold text-lg px-8 py-4 rounded-full transition-all w-full hover:shadow-[0_0_25px_rgba(212,168,67,0.4)]"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.99-.27c1.1.37 2.29.57 3.5.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.4.57 3.5a1 1 0 01-.27.99l-2.18 2.3z" />
+                </svg>
+                (956) 812-3583
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
