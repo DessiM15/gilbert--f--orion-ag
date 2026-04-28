@@ -10,7 +10,7 @@ export default function Hero() {
     <section ref={ref} className="relative min-h-[90vh] flex items-center text-white overflow-hidden">
       {/* Background photo */}
       <Image
-        src="/images/hero-bg.jpg"
+        src="/images/hero-bg.png"
         alt=""
         fill
         priority

@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
     <section id="why-us" className="relative py-20 text-white overflow-hidden">
       {/* Background photo */}
       <Image
-        src="/images/why-us-bg.jpg"
+        src="/images/why-us-bg.png"
         alt=""
         fill
         className="object-cover"
