@@ -22,8 +22,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-dark/30" />
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-        <div className="max-w-3xl">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 text-center">
+        <div className="max-w-3xl mx-auto">
           <h1
             className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight ${
               isInView ? "animate-fade-in-up" : "animate-hidden"
@@ -41,7 +41,7 @@ export default function Hero() {
             Same day service available.
           </p>
           <div
-            className={`mt-10 flex flex-col sm:flex-row gap-4 ${
+            className={`mt-10 flex flex-col sm:flex-row justify-center gap-4 ${
               isInView ? "animate-fade-in-up delay-400" : "animate-hidden"
             }`}
           >
