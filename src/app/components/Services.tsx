@@ -6,7 +6,7 @@ const services = [
   {
     title: "Windshield Repair",
     description:
-      "Quick, reliable windshield chip and crack repairs. We restore your windshield's integrity and clarity so you can drive safely.",
+      "Quick, reliable windshield chip and crack repairs. No upfront cost with Full Coverage insurance. We restore your windshield's integrity and clarity so you can drive safely.",
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h.01M15 12h.01M12 9v.01M12 15v.01M4.5 19.5l3-3m0 0l1.5-1.5M7.5 16.5L6 15m12 4.5l-3-3m0 0l-1.5-1.5M16.5 16.5L18 15M12 3C7.5 3 3.75 6 3 9.75L4.5 19.5h15L21 9.75C20.25 6 16.5 3 12 3z" />
@@ -86,6 +86,9 @@ export default function Services() {
           <span className="inline-block bg-gold text-dark font-bold text-lg px-8 py-3 rounded-full shadow-md">
             Discounts Available!
           </span>
+          <p className="mt-4 text-gray-500 text-sm">
+            A travel surcharge may apply for service outside our local area.
+          </p>
         </div>
       </div>
     </section>
