@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-gold mb-3">
+            <h3 className="text-2xl font-black text-gold mb-3 uppercase">
               Orion Auto Glass
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed font-medium">
               Professional auto glass repair and replacement serving the Rio
               Grande Valley, South Texas.
             </p>
@@ -19,7 +19,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-white mb-3">Contact Us</h4>
+            <h4 className="font-black text-white mb-3 uppercase">Contact Us</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
@@ -48,7 +48,7 @@ export default function Footer() {
 
           {/* Location & Service Area */}
           <div>
-            <h4 className="font-bold text-white mb-3">Location &amp; Service Area</h4>
+            <h4 className="font-black text-white mb-3 uppercase">Location &amp; Service Area</h4>
             <ul className="space-y-3 text-sm">
               <li className="text-gray-400 flex items-start gap-2">
                 <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">

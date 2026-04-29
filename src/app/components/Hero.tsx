@@ -25,15 +25,15 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 text-center">
         <div className="max-w-3xl mx-auto">
           <h1
-            className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight ${
+            className={`text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight uppercase ${
               isInView ? "animate-fade-in-up" : "animate-hidden"
             }`}
           >
-            Broken Glass?{" "}
-            <span className="text-gold">We&apos;ve Got You Covered.</span>
+            Your Trusted{" "}
+            <span className="text-gold">Glass Repair Experts</span>
           </h1>
           <p
-            className={`mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl ${
+            className={`mt-6 text-xl sm:text-2xl text-gray-300 max-w-2xl font-medium ${
               isInView ? "animate-fade-in-up delay-200" : "animate-hidden"
             }`}
           >

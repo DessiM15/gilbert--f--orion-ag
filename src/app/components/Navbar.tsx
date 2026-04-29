@@ -37,11 +37,11 @@ export default function Navbar() {
             <Image
               src="/images/logo.png"
               alt="Orion Auto Glass"
-              width={40}
-              height={40}
+              width={56}
+              height={56}
               className="rounded-full"
             />
-            <span className="text-white font-bold text-lg hidden sm:block">
+            <span className="text-white font-extrabold text-xl hidden sm:block">
               Orion Auto Glass
             </span>
           </a>

@@ -45,10 +45,10 @@ export default function Services() {
     <section id="services" className="py-20 bg-white">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-14 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-dark">
+          <h2 className="text-4xl sm:text-5xl font-black text-dark uppercase">
             Our Services
           </h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-700 text-xl max-w-2xl mx-auto font-medium">
             From small chips to full replacements, we handle it all with
             precision and care.
           </p>
@@ -71,10 +71,10 @@ export default function Services() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 text-gold mb-6">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-dark mb-3">
+              <h3 className="text-2xl font-black text-dark mb-3 uppercase">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-medium">
                 {service.description}
               </p>
             </div>
@@ -83,10 +83,10 @@ export default function Services() {
 
         {/* Discounts banner */}
         <div className={`mt-12 text-center ${isInView ? "animate-fade-in-up delay-600" : "animate-hidden"}`}>
-          <span className="inline-block bg-gold text-dark font-bold text-lg px-8 py-3 rounded-full shadow-md">
+          <span className="inline-block bg-gold text-dark font-black text-xl px-10 py-4 rounded-full shadow-md uppercase">
             Discounts Available!
           </span>
-          <p className="mt-4 text-gray-500 text-sm">
+          <p className="mt-6 text-gray-700 text-base font-semibold">
             A travel surcharge may apply for service outside our local area.
           </p>
         </div>

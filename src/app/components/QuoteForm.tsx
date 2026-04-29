@@ -22,16 +22,16 @@ export default function QuoteForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-dark mb-3">
+            <h3 className="text-3xl font-black text-dark mb-3 uppercase">
               Thank You!
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-700 mb-6 text-lg font-medium">
               We&apos;ve received your request. Our team will reach out to you
               shortly. For immediate assistance, give us a call.
             </p>
             <a
               href="tel:9568123583"
-              className="inline-flex items-center justify-center bg-gold hover:bg-gold-dark text-dark font-bold px-8 py-3 rounded-full transition-colors"
+              className="inline-flex items-center justify-center bg-gold hover:bg-gold-dark text-dark font-black px-8 py-3 rounded-full transition-colors uppercase"
             >
               Call (956) 812-3583
             </a>
@@ -45,10 +45,10 @@ export default function QuoteForm() {
     <section id="quote" className="py-20 bg-tan/40">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-10 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-dark">
+          <h2 className="text-4xl sm:text-5xl font-black text-dark uppercase">
             Get a <span className="text-gold-dark">Free Quote</span>
           </h2>
-          <p className="mt-4 text-gray-600 text-lg">
+          <p className="mt-4 text-gray-700 text-xl font-medium">
             Fill out the form below and we&apos;ll get back to you with an
             estimate.
           </p>
@@ -152,7 +152,7 @@ export default function QuoteForm() {
 
             <button
               type="submit"
-              className="w-full bg-gold hover:bg-gold-dark text-dark font-bold text-lg py-4 rounded-full transition-all cursor-pointer hover:shadow-[0_0_25px_rgba(212,168,67,0.4)]"
+              className="w-full bg-gold hover:bg-gold-dark text-dark font-black text-xl py-4 rounded-full transition-all cursor-pointer hover:shadow-[0_0_25px_rgba(212,168,67,0.4)] uppercase"
             >
               Request Free Quote
             </button>
@@ -161,7 +161,7 @@ export default function QuoteForm() {
           {/* Right side — persuasive CTA — 2 columns */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-dark rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-2xl font-black mb-4 uppercase">
                 Why Get a Quote <span className="text-gold">Today</span>?
               </h3>
               <ul className="space-y-4">
@@ -169,25 +169,25 @@ export default function QuoteForm() {
                   <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-300">100% free, no-obligation estimates</span>
+                  <span className="text-gray-300 font-medium">100% free, no-obligation estimates</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-300">Same day service available</span>
+                  <span className="text-gray-300 font-medium">Same day service available</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-300">Local RGV family business</span>
+                  <span className="text-gray-300 font-medium">Local RGV family business</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-300">Quality work guaranteed</span>
+                  <span className="text-gray-300 font-medium">Quality work guaranteed</span>
                 </li>
               </ul>
             </div>
@@ -196,7 +196,7 @@ export default function QuoteForm() {
               <p className="text-gray-400 text-sm mb-3">Prefer to talk now?</p>
               <a
                 href="tel:9568123583"
-                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-dark font-bold text-lg px-8 py-4 rounded-full transition-all w-full hover:shadow-[0_0_25px_rgba(212,168,67,0.4)]"
+                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark text-dark font-black text-lg px-8 py-4 rounded-full transition-all w-full hover:shadow-[0_0_25px_rgba(212,168,67,0.4)] uppercase"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.99-.27c1.1.37 2.29.57 3.5.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.4.57 3.5a1 1 0 01-.27.99l-2.18 2.3z" />

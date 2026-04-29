@@ -62,10 +62,10 @@ export default function WhyChooseUs() {
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-14 ${isInView ? "animate-fade-in-up" : "animate-hidden"}`}>
-          <h2 className="text-3xl sm:text-4xl font-extrabold">
+          <h2 className="text-4xl sm:text-5xl font-black uppercase">
             Why Choose <span className="text-gold">Us</span>?
           </h2>
-          <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-300 text-xl max-w-2xl mx-auto font-medium">
             We&apos;re committed to providing the best auto glass service in the
             Rio Grande Valley.
           </p>
@@ -90,8 +90,8 @@ export default function WhyChooseUs() {
               `}>
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <h3 className="text-xl font-black mb-2 uppercase">{feature.title}</h3>
+              <p className="text-gray-300 text-base leading-relaxed font-medium">
                 {feature.description}
               </p>
             </div>
